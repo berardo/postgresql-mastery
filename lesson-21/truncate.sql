@@ -1,0 +1,9 @@
+-- Preparation (add some orders):
+INSERT INTO orders(customer_id) VALUES (1001), (1002);
+BEGIN;
+TRUNCATE TABLE customers CASCADE;
+ROLLBACK:
+
+BEGIN;
+TRUNCATE TABLE orders CONTINUE IDENTITY CASCADE;
+ROLLBACK;
